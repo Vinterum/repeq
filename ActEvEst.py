@@ -45,3 +45,6 @@ df.quantile(0.75)
 
 #%%
 df.info()
+
+# %%
+df.describe()

@@ -67,6 +67,9 @@ sns.histplot(data=cluster0, x="Food%_range", multiple="stack", hue="Fresh%_range
 sns.histplot(data=cluster0, x="Home%_range", multiple="stack", hue="Beauty%_range")
 
 # %%
+sns.histplot(data=cluster0, x="Drinks%_range")
+
+# %%
 # A partir de aquí es el cluster 1
 sns.histplot(data=cluster1, x="Baby%_range", multiple="stack", hue="Pets%_range")
 
@@ -75,6 +78,9 @@ sns.histplot(data=cluster1, x="Food%_range", multiple="stack", hue="Fresh%_range
 
 # %%
 sns.histplot(data=cluster1, x="Home%_range", multiple="stack", hue="Beauty%_range")
+
+# %%
+sns.histplot(data=cluster1, x="Drinks%_range")
 
 # %%
 # A partir de aquí es el cluster 2
@@ -87,13 +93,19 @@ sns.histplot(data=cluster2, x="Baby%_range", multiple="stack", hue="Home%_range"
 sns.histplot(data=cluster2, x="Baby%_range", multiple="stack", hue="Beauty%_range")
 
 # %%
+sns.histplot(data=cluster2, x="Drinks%_range")
+
+# %%
 # A partir de aquí es el cluster 3
 sns.histplot(data=cluster3, x="Baby%_range", multiple="stack", hue="Pets%_range")
 
 # %%
-sns.histplot(data=cluster3, x="Food%_range", multiple="stack", hue="Drinks%_range")
+sns.histplot(data=cluster3, x="Food%_range", multiple="stack", hue="Fresh%_range")
 
 # %%
 sns.histplot(data=cluster3, x="Home%_range", multiple="stack", hue="Beauty%_range")
+
+# %%
+sns.histplot(data=cluster3, x="Drinks%_range")
 
 # %%

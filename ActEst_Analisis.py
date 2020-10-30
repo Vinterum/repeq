@@ -36,7 +36,22 @@ Aumentos=df[df["discount%_cat"]=='Aumento']
 sns.displot(data=Aumentos, x="discount%_cat", multiple="stack", hue="weekday")
 
 # %%
+sns.boxplot(data=df, x="weekday", y="total_items")
+
+# %%
 sns.boxplot(data=df, x="discount%")
 
+# %%
+sns.boxplot(data=df, x="Drinks%")
+
+# %%
+df.head()
+
+# %%
+sns.displot(data=df, x="Drinks%_cat", y="total_items")
+
+# %%
+df_original=df.drop(columns=['Drinks%_cat','discount%_cat'])
+sns.heatmap(df_original.corr())
 
 # %%

@@ -40,3 +40,5 @@ df.std()
 df.quantile([.25, .5, .75])
 # %%
 df.describe()
+
+# %%

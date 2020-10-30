@@ -27,17 +27,12 @@ k = round(kneedle.knee) # Número óptimo para k
 
 print(f"Number of clusters suggested by knee method: {k}")
 
-# ======================================
-# Ya con el k calculamos los clusters
-# ======================================
+# ============================================
+# Ya con el valor de k calculamos los clusters
+# ============================================
 kmeans = KMeans(n_clusters=k).fit(df[["total_items","discount%","weekday","hour","Food%","Fresh%","Drinks%","Home%","Beauty%","Health%","Baby%","Pets%"]])
 
 # Generar el scatterplot con la organización de los clusters
-#sns.scatterplot(data=df, x="Annual_Income_(k$)", y="Spending_Score", hue=kmeans.labels_)
-#plt.show()
-
-# %%
-#sns.scatterplot(data=df, x="Annual_Income_(k$)", y="Spending_Score", hue="Age")
 
 # %%
 df["Food%_range"]=pd.cut(df["Food%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
@@ -54,6 +49,23 @@ cluster0=df[kmeans.labels_ == 0]
 cluster1=df[kmeans.labels_ == 1]
 cluster2=df[kmeans.labels_ == 2]
 cluster3=df[kmeans.labels_ == 3]
+
+# %%
+cluster0[["Food%","Fresh%","Drinks%",x=]].sum().plot.bar()
+plt.show()
+
+# %%
+cluster1[["Food%","Fresh%","Drinks%"]].sum().plot.bar()
+plt.show()
+
+# %%
+cluster2[["Food%","Fresh%","Drinks%"]].sum().plot.bar()
+plt.show()
+
+# %%
+cluster3[["Food%","Fresh%","Drinks%"]].sum().plot.bar()
+plt.show()
+
 
 # %%
 #A partir de aquí es el cluster 0

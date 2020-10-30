@@ -51,19 +51,19 @@ cluster2=df[kmeans.labels_ == 2]
 cluster3=df[kmeans.labels_ == 3]
 
 # %%
-cluster0[["Food%","Fresh%","Drinks%",x=]].sum().plot.bar()
+cluster0[['total_items','Food%', 'Fresh%','Drinks%', 'Home%', 'Beauty%', 'Health%','Baby%', 'Pets%','discount%']].sum().plot.bar()
 plt.show()
 
 # %%
-cluster1[["Food%","Fresh%","Drinks%"]].sum().plot.bar()
+cluster1[['total_items','Food%', 'Fresh%','Drinks%', 'Home%', 'Beauty%', 'Health%','Baby%', 'Pets%','discount%']].sum().plot.bar()
 plt.show()
 
 # %%
-cluster2[["Food%","Fresh%","Drinks%"]].sum().plot.bar()
+cluster2[['total_items','Food%', 'Fresh%','Drinks%', 'Home%', 'Beauty%', 'Health%','Baby%', 'Pets%','discount%']].sum().plot.bar()
 plt.show()
 
 # %%
-cluster3[["Food%","Fresh%","Drinks%"]].sum().plot.bar()
+cluster3[['total_items','Food%', 'Fresh%','Drinks%', 'Home%', 'Beauty%', 'Health%','Baby%', 'Pets%','discount%']].sum().plot.bar()
 plt.show()
 
 
@@ -73,7 +73,6 @@ sns.histplot(data=cluster0, x="Baby%_range", multiple="stack", hue="Pets%_range"
 
 # %%
 sns.histplot(data=cluster0, x="Food%_range", multiple="stack", hue="Fresh%_range")
-#sns.boxplot(data=cluster0, x="Pets%_range", y="total_items", hue="Home%_range")
 
 # %%
 sns.histplot(data=cluster0, x="Home%_range", multiple="stack", hue="Beauty%_range")

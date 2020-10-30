@@ -15,15 +15,17 @@ for q in df.hour.quantile([.25, .5, .75]):
     g.text(q, 5, q)
 
 # %%
-df["Drinks%_cat"]=pd.cut(df["Drinks%"], [-1,0,20,40,60,80,100],labels=['0','1-20','20-40','40-60','60-80','80-100'])
-df.dropna()
+df["Food%_range"]=pd.cut(df["Food%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
+df["Fresh%_range"]=pd.cut(df["Fresh%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
+df["Drinks%_range"]=pd.cut(df["Drinks%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
+df["Home%_range"]=pd.cut(df["Home%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
+df["Beauty%_range"]=pd.cut(df["Beauty%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
+df["Health%_range"]=pd.cut(df["Health%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
+df["Baby%_range"]=pd.cut(df["Baby%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
+df["Pets%_range"]=pd.cut(df["Pets%"], [-1,0,20,40,60,80,100],labels=['0','1-20','21-40','41-60','61-80','81-100'])
 
 # %%
-df["Baby%_cat"]=pd.cut(df["Baby%"], [-1,0,20,40,60,80,100],labels=['0','1-20','20-40','40-60','60-80','80-100'])
-df.dropna()
-
-# %%
-sns.displot(data=df, x="Drinks%_cat", hue="weekday", palette="Blues")
+sns.displot(data=df, x="Drinks%_range", multiple="stack", hue="weekday", palette="rainbow")
 
 # %%
 df["discount%_cat"]=pd.cut(df["discount%"], [-70,-1,0,20,60,100],labels=['Aumento','0','1-20','21-60','61-100'])
@@ -43,7 +45,7 @@ sns.boxplot(data=df, x="weekday", y="total_items")
 sns.boxplot(data=df, x="discount%")
 
 # %%
-sns.boxplot(data=df, x="Home%")
+sns.boxplot(data=df, x="Pets%")
 
 # %%
 sns.boxplot(data=df, x="Fresh%")
@@ -52,10 +54,16 @@ sns.boxplot(data=df, x="Fresh%")
 sns.boxplot(data=df, x="Beauty%")
 
 # %%
-sns.displot(data=df, x="Drinks%_cat", y="total_items")
+sns.histplot(data=df, x="Baby%_range", multiple="stack", hue="Pets%_range")
 
 # %%
-df_original=df.drop(columns=['Drinks%_cat','discount%_cat', 'Baby%_cat'])
+sns.displot(data=df, x="Drinks%_range", y="total_items")
+
+# %%
+df_original=df.drop(columns=['Food%_range', 'Fresh%_range','Drinks%_range', 'Home%_range', 'Beauty%_range', 'Health%_range','Baby%_range', 'Pets%_range','discount%_cat'])
 sns.heatmap(df_original.corr())
+
+# %%
+df_original.describe()
 
 # %%
